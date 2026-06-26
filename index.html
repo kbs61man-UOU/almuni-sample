@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>선배의 노트 No.001 — 울산대학교 총동문회</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #DCDCDC;
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .page-header {
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .page-header p {
+    font-size: 12px;
+    color: #888;
+    letter-spacing: 1px;
+  }
+
+  .card-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .card-label {
+    font-size: 12px;
+    color: #777;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  /* 카드 공통 */
+  .card {
+    width: 540px;
+    height: 540px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.22);
+  }
+
+  /* =========================================
+     CARD 1 — 커버
+     ========================================= */
+  .card-1 { background: #0A2558; }
+
+  .card-1 .deco-svg {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%; height: 100%;
+  }
+
+  .card-1 .top-row {
+    position: absolute;
+    top: 34px; left: 42px; right: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+  }
+  .card-1 .series-badge {
+    font-size: 10px;
+    color: #C8971F;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .card-1 .ep-num {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 2px;
+  }
+
+  .card-1 .center-block {
+    position: absolute;
+    top: 50%;
+    left: 42px; right: 42px;
+    transform: translateY(-54%);
+    z-index: 2;
+  }
+  .card-1 .pre-title {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .card-1 .main-title {
+    font-size: 66px;
+    color: #FFFFFF;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1px;
+  }
+  .card-1 .gold-bar {
+    width: 52px; height: 4px;
+    background: #C8971F;
+    margin: 22px 0;
+  }
+  .card-1 .subtitle {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.65;
+  }
+
+  .card-1 .bottom-block {
+    position: absolute;
+    bottom: 36px;
+    left: 42px; right: 42px;
+    z-index: 2;
+  }
+  .card-1 .divider-line {
+    width: 100%; height: 1px;
+    background: rgba(200,151,31,0.35);
+    margin-bottom: 14px;
+  }
+  .card-1 .alumni-name {
+    font-size: 15px;
+    color: #FFFFFF;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .card-1 .alumni-meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.5px;
+  }
+
+  /* =========================================
+     CARD 2 — 선배 소개
+     ========================================= */
+  .card-2 { background: #FAFAFA; }
+
+  .card-2 .color-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #0A2558 60%, #C8971F 100%);
+  }
+  .card-2 .top-row {
+    position: absolute;
+    top: 26px; left: 42px; right: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-2 .series-badge {
+    font-size: 10px;
+    color: #0A2558;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+  .card-2 .tab-label {
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 2px;
+  }
+
+  .card-2 .content {
+    position: absolute;
+    top: 65px; bottom: 36px;
+    left: 42px; right: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .card-2 .intro-chip {
+    font-size: 11px;
+    color: #C8971F;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .card-2 .avatar {
+    width: 86px; height: 86px;
+    border-radius: 50%;
+    background: #0A2558;
+    border: 3px solid #C8971F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .card-2 .avatar span {
+    font-size: 30px;
+    color: #fff;
+    font-weight: 900;
+  }
+  .card-2 .name {
+    font-size: 26px;
+    color: #0A2558;
+    font-weight: 900;
+    margin-bottom: 5px;
+  }
+  .card-2 .dept {
+    font-size: 13px;
+    color: #999;
+    margin-bottom: 20px;
+  }
+  .card-2 .accent-bar {
+    width: 36px; height: 2px;
+    background: #C8971F;
+    margin-bottom: 20px;
+  }
+  .card-2 .pos-label {
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .card-2 .pos-text {
+    font-size: 14px;
+    color: #222;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.55;
+    margin-bottom: 22px;
+  }
+  .card-2 .intro-quote {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.75;
+    border-left: 3px solid #C8971F;
+    padding-left: 14px;
+    align-self: flex-start;
+    width: 100%;
+  }
+
+  /* =========================================
+     CARD 3 — INSIGHT 01 (네이비)
+     ========================================= */
+  .card-3 { background: #0A2558; }
+
+  .card-3 .deco-svg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+  }
+  .card-3 .big-bg-num {
+    position: absolute;
+    top: 10px; left: 20px;
+    font-size: 160px;
+    font-weight: 900;
+    color: rgba(200,151,31,0.07);
+    line-height: 1;
+    user-select: none;
+    z-index: 1;
+  }
+  .card-3 .top-row {
+    position: absolute;
+    top: 34px; left: 42px; right: 42px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 2;
+  }
+  .card-3 .insight-tag {
+    font-size: 10px;
+    color: #C8971F;
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+  .card-3 .series-tag {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+  }
+  .card-3 .quote-open {
+    position: absolute;
+    top: 72px; left: 36px;
+    font-size: 90px;
+    color: rgba(200,151,31,0.28);
+    font-family: Georgia, serif;
+    line-height: 1;
+    z-index: 2;
+  }
+  .card-3 .main-block {
+    position: absolute;
+    top: 50%; left: 42px; right: 42px;
+    transform: translateY(-52%);
+    z-index: 2;
+  }
+  .card-3 .quote-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 30px;
+    color: #FFFFFF;
+    font-weight: 700;
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+  .card-3 .accent-bar {
+    width: 32px; height: 3px;
+    background: #C8971F;
+    margin-bottom: 18px;
+  }
+  .card-3 .context-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.8;
+  }
+  .card-3 .bottom-row {
+    position: absolute;
+    bottom: 32px; left: 42px; right: 42px;
+    z-index: 2;
+  }
+  .card-3 .speaker {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+  }
+  .card-3 .speaker strong { color: rgba(255,255,255,0.75); }
+
+  /* =========================================
+     CARD 4 — INSIGHT 02 (크림)
+     ========================================= */
+  .card-4 { background: #F5F0E6; }
+
+  .card-4 .top-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: #C8971F;
+  }
+  .card-4 .big-bg-num {
+    position: absolute;
+    bottom: 50px; right: 14px;
+    font-size: 150px;
+    font-weight: 900;
+    color: rgba(10,37,88,0.05);
+    line-height: 1;
+    user-select: none;
+  }
+  .card-4 .top-row {
+    position: absolute;
+    top: 26px; left: 42px; right: 42px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .card-4 .insight-tag {
+    font-size: 10px;
+    color: #C8971F;
+    letter-spacing: 3px;
+    font-weight: 700;
+  }
+  .card-4 .series-tag {
+    font-size: 10px;
+    color: #bbb;
+    letter-spacing: 1px;
+  }
+  .card-4 .content {
+    position: absolute;
+    top: 68px; bottom: 60px;
+    left: 42px; right: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-4 .quote-open {
+    font-size: 70px;
+    color: #C8971F;
+    font-family: Georgia, serif;
+    line-height: 0.75;
+    margin-bottom: 14px;
+  }
+  .card-4 .quote-text {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 23px;
+    color: #0A2558;
+    font-weight: 700;
+    line-height: 1.65;
+    margin-bottom: 26px;
+  }
+  .card-4 .accent-bar {
+    width: 32px; height: 3px;
+    background: #C8971F;
+    margin-bottom: 18px;
+  }
+  .card-4 .context-text {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.8;
+  }
+  .card-4 .bottom-row {
+    position: absolute;
+    bottom: 28px; left: 42px; right: 42px;
+  }
+  .card-4 .speaker {
+    font-size: 12px;
+    color: #aaa;
+  }
+  .card-4 .speaker strong { color: #0A2558; }
+
+  /* =========================================
+     CARD 5 — 마무리 & CTA
+     ========================================= */
+  .card-5 { background: #061A3A; }
+
+  .card-5 .top-stripe {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #C8971F 50%, #0A2558 100%);
+  }
+  .card-5 .top-row {
+    position: absolute;
+    top: 26px; left: 42px; right: 42px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .card-5 .series-tag {
+    font-size: 10px;
+    color: #C8971F;
+    letter-spacing: 2px;
+    font-weight: 700;
+  }
+  .card-5 .ep-tag {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 2px;
+  }
+  .card-5 .content {
+    position: absolute;
+    top: 62px; bottom: 70px;
+    left: 42px; right: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .card-5 .section-label {
+    font-size: 10px;
+    color: #C8971F;
+    letter-spacing: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .card-5 .final-quote {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    font-weight: 700;
+    line-height: 1.7;
+    margin-bottom: 22px;
+  }
+  .card-5 .attribution {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 32px;
+  }
+  .card-5 .divider {
+    width: 100%; height: 1px;
+    background: rgba(200,151,31,0.25);
+    margin-bottom: 22px;
+  }
+  .card-5 .next-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+  }
+  .card-5 .next-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+  }
+  .card-5 .bottom-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 58px;
+    background: rgba(200,151,31,0.13);
+    border-top: 1px solid rgba(200,151,31,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 42px;
+  }
+  .card-5 .org-name {
+    font-size: 13px;
+    color: #C8971F;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .card-5 .cta {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.5px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>선배의 노트 No.001</h1>
+  <p>울산대학교 총동문회 · 인스타그램 카드뉴스 샘플</p>
+</div>
+
+<!-- ======================== CARD 1 : 커버 ======================== -->
+<div class="card-item">
+  <div class="card-label">카드 1 / 5 &nbsp;—&nbsp; 커버</div>
+  <div class="card card-1">
+
+    <svg class="deco-svg" viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="540" x2="540" y2="0"   stroke="rgba(200,151,31,0.09)" stroke-width="1"/>
+      <line x1="-70" y1="540" x2="470" y2="0"  stroke="rgba(200,151,31,0.05)" stroke-width="1"/>
+      <line x1="70" y1="540" x2="610" y2="0"   stroke="rgba(200,151,31,0.05)" stroke-width="1"/>
+      <circle cx="490" cy="78" r="130" fill="none" stroke="rgba(200,151,31,0.07)" stroke-width="1"/>
+      <circle cx="490" cy="78" r="85"  fill="none" stroke="rgba(200,151,31,0.07)" stroke-width="1"/>
+      <circle cx="490" cy="78" r="42"  fill="rgba(200,151,31,0.05)"/>
+      <rect x="0" y="536" width="540" height="4" fill="rgba(200,151,31,0.35)"/>
+    </svg>
+
+    <div class="top-row">
+      <span class="series-badge">선배의 노트</span>
+      <span class="ep-num">No. 001</span>
+    </div>
+
+    <div class="center-block">
+      <div class="pre-title">울산대학교 총동문회</div>
+      <div class="main-title">선배의<br>노트</div>
+      <div class="gold-bar"></div>
+      <div class="subtitle">
+        "나는 울산대에서<br>무엇을 배웠는가"
+      </div>
+    </div>
+
+    <div class="bottom-block">
+      <div class="divider-line"></div>
+      <div class="alumni-name">박지훈 선배 편</div>
+      <div class="alumni-meta">기계공학부 01학번 &nbsp;·&nbsp; 現 현대자동차 미래기술연구센터 수석연구원</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== CARD 2 : 선배 소개 ======================== -->
+<div class="card-item">
+  <div class="card-label">카드 2 / 5 &nbsp;—&nbsp; 선배 소개</div>
+  <div class="card card-2">
+
+    <div class="color-top"></div>
+    <div class="top-row">
+      <span class="series-badge">선배의 노트 · No.001</span>
+      <span class="tab-label">PROFILE</span>
+    </div>
+
+    <div class="content">
+      <div class="intro-chip">이번 선배를 소개합니다</div>
+      <div class="avatar"><span>박</span></div>
+      <div class="name">박지훈</div>
+      <div class="dept">기계공학부 01학번 (2005년 졸업)</div>
+      <div class="accent-bar"></div>
+      <div class="pos-label">현직</div>
+      <div class="pos-text">
+        現 현대자동차 미래기술연구센터<br>
+        전동화시스템개발팀 수석연구원
+      </div>
+      <div class="intro-quote">
+        "졸업 후 20년. 돌아보면<br>
+        울산대가 제 커리어의 진짜 출발점이었습니다."
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== CARD 3 : INSIGHT 01 ======================== -->
+<div class="card-item">
+  <div class="card-label">카드 3 / 5 &nbsp;—&nbsp; 인사이트 01</div>
+  <div class="card card-3">
+
+    <svg class="deco-svg" viewBox="0 0 540 540" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="490" cy="80"  r="160" fill="none" stroke="rgba(200,151,31,0.08)" stroke-width="1"/>
+      <circle cx="490" cy="80"  r="110" fill="none" stroke="rgba(200,151,31,0.07)" stroke-width="1"/>
+      <circle cx="60"  cy="490" r="120" fill="none" stroke="rgba(200,151,31,0.06)" stroke-width="1"/>
+    </svg>
+    <div class="big-bg-num">01</div>
+
+    <div class="top-row">
+      <span class="insight-tag">INSIGHT 01</span>
+      <span class="series-tag">선배의 노트 · No.001</span>
+    </div>
+
+    <div class="quote-open">"</div>
+
+    <div class="main-block">
+      <div class="quote-text">
+        실패는<br>데이터입니다.
+      </div>
+      <div class="accent-bar"></div>
+      <div class="context-text">
+        "처음 맡은 프로젝트에서 완전히 실패했어요.<br>
+        그 실패가 없었다면, 지금의 저도 없었을 겁니다.<br>
+        실패를 두려워하는 순간, 성장도 멈춥니다."
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <span class="speaker">— <strong>박지훈</strong> &nbsp;·&nbsp; 기계공학부 01학번</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== CARD 4 : INSIGHT 02 ======================== -->
+<div class="card-item">
+  <div class="card-label">카드 4 / 5 &nbsp;—&nbsp; 인사이트 02</div>
+  <div class="card card-4">
+
+    <div class="top-accent"></div>
+    <div class="big-bg-num">02</div>
+
+    <div class="top-row">
+      <span class="insight-tag">INSIGHT 02</span>
+      <span class="series-tag">선배의 노트 · No.001</span>
+    </div>
+
+    <div class="content">
+      <div class="quote-open">"</div>
+      <div class="quote-text">
+        울산대 공대에서 배운 건<br>
+        '문제를 회피하지<br>않는 것'이었습니다.
+      </div>
+      <div class="accent-bar"></div>
+      <div class="context-text">
+        새벽 2시까지 실험실 불이 꺼지지 않던 그 시절,<br>
+        교수님과 선배들 옆에서 몸으로 배웠습니다.<br>
+        끝까지 파고드는 태도, 그게 현장에서 빛을 발했어요.
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <span class="speaker">— <strong>박지훈</strong> &nbsp;·&nbsp; 기계공학부 01학번</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- ======================== CARD 5 : 마무리 & CTA ======================== -->
+<div class="card-item">
+  <div class="card-label">카드 5 / 5 &nbsp;—&nbsp; 마무리 &amp; CTA</div>
+  <div class="card card-5">
+
+    <div class="top-stripe"></div>
+
+    <div class="top-row">
+      <span class="series-tag">선배의 노트 · No.001</span>
+      <span class="ep-tag">OUTRO</span>
+    </div>
+
+    <div class="content">
+      <div class="section-label">후배들에게 전하는 한 마디</div>
+      <div class="final-quote">
+        "지금 어렵다고 느낀다면,<br>
+        당신은 성장하고 있는 겁니다.<br>
+        울산대 출신은 포기하지 않습니다."
+      </div>
+      <div class="attribution">— 박지훈 &nbsp;·&nbsp; 기계공학부 01학번</div>
+      <div class="divider"></div>
+      <div class="next-label">NEXT EPISODE</div>
+      <div class="next-text">다음 선배의 노트도 기대해 주세요</div>
+    </div>
+
+    <div class="bottom-bar">
+      <span class="org-name">울산대학교 총동문회</span>
+      <span class="cta">팔로우 &amp; 공유하기 🔔</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
